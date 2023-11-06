@@ -1,0 +1,30 @@
+﻿@model NoteModel
+
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Edit Note</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label>Head</label>
+            <input asp-for="Head" type="text" class="form-control" />
+            <span asp-validation-for="Head" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label>Text</label>
+            <textarea asp-for="Text" class="form-control"></textarea>
+            <span asp-validation-for="Text" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <button type="submit" class="btn btn-primary form-control">Edit</button>
+            </div>
+            <div class="col-6">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">
+                    Back to List
+                </a>
+            </div>
+        </div>
+    </div>
+</form>

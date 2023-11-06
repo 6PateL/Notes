@@ -1,0 +1,48 @@
+﻿@model List<NoteModel> 
+
+<div class="container">
+    <div class="col-6">
+        <h2>
+            Note List
+        </h2>
+    </div>
+</div>
+<div>
+    <a asp-controller="Home" asp-action="Create" class="btn btn-primary">Create new note</a>
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                Header
+            </th>
+            <th>
+                Note
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Head
+                </td>
+                <td>
+                    @item.Text 
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Home" asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-primary mx-2">
+                            Edit
+                        </a>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-Id="@item.Id" class="btn btn-delete mx-2">
+                            Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
